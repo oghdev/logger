@@ -1,0 +1,23 @@
+{
+  "name": "logger",
+  "version": "0.1.0",
+  "description": "Standard ndjson (by default) formatted logger",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oghdev/logger.git"
+  },
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/oghdev/logger/issues"
+  },
+  "homepage": "https://github.com/oghdev/logger#readme",
+  "dependencies": {
+    "serialize-error": "^7.0.1",
+    "winston": "^3.3.3"
+  }
+}
