@@ -15,9 +15,7 @@ const defaultLevels = {
 
 const printfLog = (info) => {
 
-  console.log({ info })
-
-  const error = info.error ? serializeError(info.error) : null
+  const error = info.error ? serializeError(info.error) : undefined
 
   return JSON.stringify(Object.assign(
     {
