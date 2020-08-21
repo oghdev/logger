@@ -3,12 +3,12 @@ const { serializeError } = require('serialize-error')
 
 const defaultLevels = {
   levels: {
-    trace: 0,
-    debug: 1,
-    info: 2,
-    warn: 3,
-    error: 4,
-    fatal: 5
+    trace: 5,
+    debug: 4,
+    info: 3,
+    warn: 2,
+    error: 1,
+    fatal: 0
   },
   colors: {}
 }
@@ -37,7 +37,7 @@ const defaultTransport = new transports.Console({ format: defaultFormat })
 const generateLogger = (transport, opts) => {
 
   transport = transport || defaultTransport
-  opts = Object.assign({ level: 'info', meta: {}, logLevels: defaultLevels }, opts || {})
+  opts = Object.assign({ level: process.env.LOG_LEVEL || 'info', meta: {}, logLevels: defaultLevels }, opts || {})
 
   const logger = createLogger({
     level: opts.level,
