@@ -1,6 +1,6 @@
 {
   "name": "logger",
-  "version": "0.1.2",
+  "version": "1.2.0",
   "description": "Standard ndjson (by default) formatted logger",
   "main": "index.js",
   "scripts": {

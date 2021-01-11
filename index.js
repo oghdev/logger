@@ -31,12 +31,13 @@ const printfLog = (info) => {
 
 }
 
-const defaultFormat = format.combine(format.timestamp(), format.printf(printfLog))
-const defaultTransport = new transports.Console({ format: defaultFormat })
+const defaultFormat = () => format.combine(format.timestamp(), format.printf(printfLog))
+
+const defaultTransport = () => new transports.Console({ format: defaultFormat() })
 
 const generateLogger = (transport, opts) => {
 
-  transport = transport || defaultTransport
+  transport = transport || defaultTransport()
   opts = Object.assign({ level: process.env.LOG_LEVEL || 'info', meta: {}, logLevels: defaultLevels }, opts || {})
 
   const logger = createLogger({
@@ -57,4 +58,4 @@ const generateLogger = (transport, opts) => {
 
 }
 
-module.exports = { generateLogger, defaultTransport }
+module.exports = { generateLogger, defaultLevels, defaultFormat, defaultTransport }
