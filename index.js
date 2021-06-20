@@ -38,14 +38,20 @@ const defaultTransport = () => new transports.Console({ format: defaultFormat() 
 const generateLogger = (transport, opts) => {
 
   transport = transport || defaultTransport()
-  opts = Object.assign({ level: process.env.LOG_LEVEL || 'info', meta: {}, logLevels: defaultLevels }, opts || {})
+
+  opts = Object.assign({
+    level: process.env.LOG_LEVEL || 'info',
+    meta: {},
+    logLevels: defaultLevels,
+    exitOnError: true
+  }, opts || {})
 
   const logger = createLogger({
     level: opts.level,
     levels: opts.logLevels.levels,
     defaultMeta: opts.meta,
     transports: [ transport ],
-    exitOnError: false
+    exitOnError: opts.exitOnError
   })
 
   addColors(defaultLevels.colors)
